@@ -64,6 +64,7 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route('/', methods=['GET', 'POST'])
     def home():
+        error = None
         if request.method == 'POST':
         # check if the post request has the file part
             if 'file' not in request.files:
@@ -80,7 +81,9 @@ def create_app(test_config=None):
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 result = run_Image_AI(filename)
                 return redirect(url_for(result))
-        return render_template('index.html')
+            if not allowed_file(file.filename):
+                error = 'Error invalid file type'    
+        return render_template('index.html', error = error)
 
     @app.route('/bottle')
     def bottle():

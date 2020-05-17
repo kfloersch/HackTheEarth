@@ -10,7 +10,10 @@
     <form method='post' enctype="multipart/form-data">
       <input type="file" name="file" required>
       <input type="submit" value=Upload onclick>
-    </form>
+    </form> 
+      {% if error %}
+         <p><strong>Error:</strong> {{ error }}
+      {% endif %}
     <div>
       <p>loading...</p>
     </div>
