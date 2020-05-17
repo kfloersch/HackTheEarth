@@ -1,9 +1,10 @@
 :root {
     --blue: #5970C1;
+    --green: #F4FFED;
 }
 
 body {
-    background-color: mintcream;
+    background-color: var(--green);
     color: var(--blue);
     font-family: Roboto, Arial, Helvetica, sans-serif;
 }
@@ -36,6 +37,11 @@ h1 {
 .menu li a {
     text-decoration: none;
     color: var(--blue);
+}
+
+.menu li a:hover {
+    color: teal;
+    transition: .5s color;
 }
 
 #footer {
