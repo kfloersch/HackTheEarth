@@ -1,9 +1,37 @@
 import os
 
+from imageai.Prediction.Custom import CustomImagePrediction
+
+
 from flask import Flask, render_template
 from flask import Flask, flash, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 
+
+
+def run_Image_AI(filename="empty"):
+    execution_path = os.getcwd()
+
+    prediction = CustomImagePrediction()
+    prediction.setModelTypeAsResNet()
+    prediction.setModelPath("model_ex-092_acc-0.959971.h5")
+    prediction.setJsonPath("model_class.json")
+    prediction.loadModel(num_objects=7)
+
+    predictions, probabilities = prediction.predictImage(filename, result_count=7)
+    count = 0
+    finPred = ""
+    finProb = 0.0
+    for eachPrediction, eachProbability in zip(predictions, probabilities):
+      finPred = eachPrediction
+      finProb = eachProbability
+      break
+
+    return[finPred , finProb]
+
+
+
+    
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
