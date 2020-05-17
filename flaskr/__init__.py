@@ -82,7 +82,7 @@ def create_app(test_config=None):
                 result = run_Image_AI(filename)
                 return redirect(url_for(result))
             if not allowed_file(file.filename):
-                error = 'Error invalid file type'    
+                error = 'Error invalid file type. Please try again with a .jpg file.'    
         return render_template('index.html', error = error)
 
     @app.route('/bottle')

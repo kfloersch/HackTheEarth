@@ -1,6 +1,7 @@
 <head>
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.js') }}">
+  <script src="../static/main.js"></script>
 </head>
+
 {% extends "layout.html" %}
 {% block title %}Home Page{% endblock %}
 {% block content %}
@@ -9,13 +10,15 @@
     <p>upload an image to find out if it's recyclable!</p>
     <form method='post' enctype="multipart/form-data">
       <input type="file" name="file" required>
-      <input type="submit" value=Upload onclick>
+      <input type="submit" value=Upload onclick="toggle_visibility('loading')">
     </form> 
       {% if error %}
          <p><strong>Error:</strong> {{ error }}
       {% endif %}
-    <div>
+    <div id="loading" style="display: none;">
       <p>loading...</p>
     </div>
   </div>
 {% endblock %}
+
+
