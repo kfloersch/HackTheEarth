@@ -26,7 +26,6 @@ def run_Image_AI(filename="empty"):
       finPred = eachPrediction
       finProb = eachProbability
       break
-    return[finPred, finProb]
 
     return finPred
 
@@ -79,14 +78,9 @@ def create_app(test_config=None):
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                return redirect(url_for('uploaded_file',
-                                        filename=filename))
+                result = run_Image_AI(filename)
+                return redirect(url_for(result))
         return render_template('index.html')
-
-    @app.route('/ImageAI_Program/<filename>')
-    def uploaded_file(filename):
-        return send_from_directory(app.config['UPLOAD_FOLDER'],
-                                filename)
 
     @app.route('/bottle')
     def bottle():
@@ -95,6 +89,26 @@ def create_app(test_config=None):
     @app.route('/styrofoam')
     def styrofoam():
         return render_template('styrofoam.html')
+
+    @app.route('/cans')
+    def cans():
+        return render_template('cans.html')
+
+    @app.route('/paper')
+    def paper():
+        return render_template('paper.html')
+
+    @app.route('/pizzabox')
+    def pizzabox():
+        return render_template('pizzabox.html')
+
+    @app.route('/battery')
+    def battery():
+        return render_template('battery.html')
+
+    @app.route('/plasticbag')
+    def plasticbag():
+        return render_template('plasticbag.html')
 
     @app.route('/resources')
     def resources():
