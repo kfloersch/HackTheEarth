@@ -1,0 +1,9 @@
+{
+    "0" : "battery",
+    "1" : "bottle",
+    "2" : "cans",
+    "3" : "paper",
+    "4" : "pizzabox",
+    "5" : "plasticbag",
+    "6" : "styrofoam"
+}
