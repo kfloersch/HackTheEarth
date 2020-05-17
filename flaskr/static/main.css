@@ -1,0 +1,53 @@
+:root {
+    --blue: #5970C1;
+}
+
+body {
+    background-color: mintcream;
+    color: var(--blue);
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+#header {
+    width: 90%;
+    margin: auto;
+    border-bottom: 2px solid var(--blue);
+}
+
+.container {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 4rem;
+    color: var(--blue);
+}
+
+#header .menu {
+    padding-top: 2%;
+}
+
+#header .menu li {
+    display: inline;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: var(--blue);
+}
+
+#footer {
+    width: 90%;
+    margin: auto;
+}
+
+#footer .menu {
+    float: right;
+}
+
+#footer .menu li {
+    text-decoration: none;
+    text-align: right;
+}

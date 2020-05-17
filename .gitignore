@@ -1,0 +1,17 @@
+#files I didn't write -- ignoring these files based on this tutorial:
+# https://flask.palletsprojects.com/en/1.1.x/tutorial/layout/?fbclid=IwAR3phSaYy_sIkfkuPGT4vxtnUVttAY-HTGzRFTJcKC6w5zAp347ohUv0y_0#run-the-application
+
+venv/
+
+*.pyc
+__pycache__/
+
+instance/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+dist/
+build/
+*.egg-info/
