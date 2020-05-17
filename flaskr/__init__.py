@@ -28,8 +28,6 @@ def run_Image_AI(filename="empty"):
 
     return finPred
 
-
-
     
 def create_app(test_config=None):
     # create and configure the app
